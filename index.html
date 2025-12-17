@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Account - Fit Squad</title>
+    <style>
+        :root {
+            /* Fit Squad Theme Colors */
+            --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --text-light: #ffffff;
+            --text-dim: #e0e0e0;
+            --danger-gradient: linear-gradient(to right, #eb3349, #f45c43);
+            --input-bg: rgba(0, 0, 0, 0.2);
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: var(--bg-gradient);
+            background-attachment: fixed;
+            color: var(--text-light);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 450px;
+            padding: 20px;
+        }
+
+        /* Frosted Glass Card */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            padding: 40px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            text-align: center;
+        }
+
+        h1 {
+            margin-top: 0;
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-dim);
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px 15px;
+            background: var(--input-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            color: var(--text-light);
+            font-size: 1rem;
+            box-sizing: border-box;
+            outline: none;
+            transition: border-color 0.3s, background 0.3s;
+            font-family: inherit;
+        }
+
+        input::placeholder, textarea::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        input:focus, textarea:focus {
+            border-color: #a3bffa;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        textarea {
+            resize: vertical;
+            height: 100px;
+        }
+
+        /* Danger Button */
+        .delete-btn {
+            background: var(--danger-gradient);
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 15px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 10px;
+            box-shadow: 0 4px 15px rgba(235, 51, 73, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .delete-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(235, 51, 73, 0.6);
+        }
+
+        .warning-text {
+            font-size: 0.85rem;
+            color: #ffcccb;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="glass-card">
+            <h1>Delete Account</h1>
+            <p class="subtitle">
+                Please verify your identity to permanently delete your <strong>Fit Squad</strong> account and data.
+            </p>
+
+            <form action="delete_success.html" method="GET">
+                
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your registered email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Confirm your password" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="reason">Reason for leaving (Optional)</label>
+                    <textarea id="reason" name="reason" placeholder="Why are you deleting your account?"></textarea>
+                </div>
+
+                <button type="submit" class="delete-btn">Permanently Delete Account</button>
+
+                <p class="warning-text">
+                    ⚠️ This action cannot be undone. All your workout history will be lost.
+                </p>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
